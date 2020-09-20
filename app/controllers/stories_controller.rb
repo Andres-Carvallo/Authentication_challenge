@@ -25,7 +25,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-
+    @story.user = current_user
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
@@ -40,15 +40,21 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1
   # PATCH/PUT /stories/1.json
   def update
-    respond_to do |format|
-      if @story.update(story_params)
+    
+    if current_user.admin? || @story.user.id == current_user.id
+      respond_to do |format|
+        if @story.update(story_params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { render :show, status: :ok, location: @story }
-      else
+        else
         format.html { render :edit }
         format.json { render json: @story.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to stories_path, notice: 'Only admins or the user who created the story can update'
     end
+      
   end
 
   # DELETE /stories/1

@@ -1,0 +1,21 @@
+
+
+<table class ="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Registration date</th>
+        <th>Admin</th>
+        <th>Edit User</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name%></td>
+            <td><%= user.email%></td>
+            <td><%= user.created_at%></td>
+            <td><%= user.admin.to_s.gsub("true", "Yes")%></td>
+            <td><%= link_to 'Edit', edit_user_registration_path, class: "btn btn-warning" %></td>
+        </tr>
+    <% end %>
+
+</table>
