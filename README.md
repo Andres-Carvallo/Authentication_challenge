@@ -1,13 +1,8 @@
 Link Heroku
 
-Link: https://blooming-beyond-39515.herokuapp.com/
+Link: https://glacial-taiga-17930.herokuapp.com/
 
-ADMIN USER
+Esta con la gema faker por si quieren revisarlo con base nueva pobladacon 50 usuarios y 100 tweets
 
-email = test@example.com
-password = 123456
 
-COMMON USER
 
-email = test2@example.com
-password = 456789

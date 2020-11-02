@@ -19,7 +19,7 @@
           <!-- ¡Pending implementation! Should work toggling between sign_in and sign_out -->
           <ul class="dropdown-menu"> 
             <% if current_user %> 
-                <li><%=link_to 'Create PicStory', new_story_path %></li> 
+                <li><%=link_to 'New Tweet', new_story_path %></li> 
                 <li><%=link_to 'My PicStories', user_path(current_user) %></li> 
                 <li><%=link_to 'My Profile', edit_user_registration_path %></li> 
                 <% if current_user.admin == true %> 
